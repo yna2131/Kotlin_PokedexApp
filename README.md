@@ -1,1 +1,2 @@
 # Kotlin_PokedexApp
+## Objetivo
