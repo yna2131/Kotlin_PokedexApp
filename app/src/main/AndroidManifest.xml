@@ -4,8 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application
-        android:allowBackup="true"
+    <application        android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -15,14 +14,19 @@
         android:theme="@style/Theme.PokedexApp"
         tools:targetApi="31" >
 
-        <activity
-            android:name=".framework.views.MainActivity"
+        <activity            android:name=".framework.views.SplashscreenActivity"
             android:exported="true"
             android:theme="@style/Theme.PokedexApp.NoActionBar"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
+            </intent-filter>        </activity>
+        <activity            android:name=".framework.views.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PokedexApp.NoActionBar"
+            android:screenOrientation="portrait"
+            />
+
     </application>
 </manifest>
