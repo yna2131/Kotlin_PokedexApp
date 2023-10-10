@@ -1,4 +1,4 @@
-package com.example.kotlin.pokedexapp.framework.views
+package com.example.kotlin.pokedexapp.framework.views.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
