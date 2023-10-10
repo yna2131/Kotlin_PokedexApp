@@ -1,6 +1,7 @@
 package com.example.kotlin.pokedexapp.framework.adapters.viewholders
 
 import android.content.Context
+import android.content.Intent
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -11,6 +12,8 @@ import com.example.kotlin.pokedexapp.data.network.model.PokemonBase
 import com.example.kotlin.pokedexapp.data.network.model.pokemon.Pokemon
 import com.example.kotlin.pokedexapp.databinding.ItemPokemonBinding
 import com.example.kotlin.pokedexapp.domain.PokemonInfoRequirement
+import com.example.kotlin.pokedexapp.framework.views.activities.PokemonDetailActivity
+import com.example.kotlin.pokedexapp.utils.Constants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,6 +24,17 @@ class PokemonViewHolder(private val binding: ItemPokemonBinding) : RecyclerView.
     fun bind(item: PokemonBase, context:Context){
         binding.TVName.text = item.name
         getPokemonInfo(item.url,binding.IVPhoto,context)
+
+        binding.llPokemon.setOnClickListener {
+            passViewGoToPokemonDetail(item.url,context)
+        }
+    }
+
+    private fun passViewGoToPokemonDetail(url: String, context: Context) {
+        val intent: Intent = Intent(context, PokemonDetailActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        intent.putExtra(Constants.URL_POKEMON, url)
+        context.startActivity(intent)
     }
 
     private fun getPokemonInfo(url:String, imageView:ImageView,context:Context){

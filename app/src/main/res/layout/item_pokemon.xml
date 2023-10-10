@@ -8,6 +8,7 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:padding="28dp"
+    android:id="@+id/llPokemon"
     >
 
     <androidx.cardview.widget.CardView
